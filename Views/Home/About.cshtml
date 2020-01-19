@@ -1,0 +1,13 @@
+﻿@model IEnumerable<WebSiteFrame.Models.AboutModel>
+@{
+    ViewData["Title"] = "About Us";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@ViewData["Message"]</h3>
+
+<p>test</p>
+
+@foreach (var e in Model)
+{
+    <partial name="_AboutPartial" model="e" />
+}

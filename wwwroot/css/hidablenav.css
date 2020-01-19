@@ -1,0 +1,112 @@
+﻿.navbarinit-right {
+    margin-right: 0px;
+    border: 0px;
+}
+
+.hidablenav {
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1040; /* Stay on top */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 10px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.hidablenavlist {
+    padding-left: 10px;
+}
+
+    .hidablenavlist > li {
+        display: flex;
+        position: initial;
+        float: initial;
+    }
+
+        .hidablenavlist > li > a {
+            display: flex;
+            position: initial;
+            font-size: 25px;
+        }
+
+.hidablenavloginpartial {
+    padding-left: 10px;
+}
+
+    .hidablenavloginpartial > li {
+        display: block;
+        position: initial;
+        float: left;
+        font-size: 14px;
+    }
+
+        .hidablenavloginpartial > li > a {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+.hidablenav-button {
+    position: fixed;
+    z-index: 1035;
+    text-align: center;
+    display: inline-block;
+    width: 100px;
+    top: 0;
+    right: 0;
+    min-height: 50px;
+    background-color: transparent; /*#222*/
+}
+
+    .hidablenav-button > span {
+        font-size: 35px;
+        color: #9d9d9d;
+        transition: 0.3s;
+        line-height: 50px;
+        vertical-align: middle;
+    }
+
+.hidablenav-button-text:hover {
+    cursor: pointer;
+    color: #111;
+}
+
+/*.hidablenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}*/
+
+.hidablenav div:hover {
+    width: 0.1px;
+    transition: 0.5s;
+}
+
+.hidablenav a:hover, .offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+.hidablenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .hidablenav {
+        padding-top: 15px;
+    }
+
+        .hidablenav a {
+            font-size: 18px;
+        }
+}

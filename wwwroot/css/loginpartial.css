@@ -1,0 +1,26 @@
+﻿.loginpartial {
+    font-size: 18px;
+    display: inline;
+}
+
+    .loginpartial > li {
+        display: inline-block;
+        position: relative;
+        font-size: 14px;
+        float: left;
+        margin-right: 10px;
+    }
+
+        .loginpartial > li > a {
+            margin-right: 0px;
+            display: block;
+        }
+
+        .loginpartial > li > span {
+            margin-right: 0px;
+            display: block;
+        }
+
+.loginpartial-right {
+    float: right;
+}

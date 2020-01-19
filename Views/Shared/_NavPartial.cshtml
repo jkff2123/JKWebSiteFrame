@@ -1,0 +1,23 @@
+﻿@using System.Security.Claims
+
+<nav class="navbar navbar-inverse navbar-right navbarinit-right">
+    <div class="hidablenav" id="hidablenav" onmouseleave="closeNav()">
+        <ul class="navbar-nav flex-grow-1 hidablenavlist">
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="About">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="nav-item">
+                    <a class="nav-link text-light" asp-area="" asp-controller="OverView" asp-action="Index">Overview</a>
+                </li>
+            }
+        </ul>
+    </div>
+</nav>

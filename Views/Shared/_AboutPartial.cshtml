@@ -1,0 +1,20 @@
+﻿@using System.Text;
+@model WebSiteFrame.Models.AboutModel
+
+<div class="about-frame">
+    @if (Model.Index % 2 == 0)
+    {
+        <div class="about-left-picture">
+            <img class="about-picture" src="@Encoding.ASCII.GetString(@Model.Picture)" />
+        </div>
+    }
+    else
+    {
+        <div class="about-right-picture">
+            <img class="about-picture" src="@Encoding.ASCII.GetString(@Model.Picture)" />
+        </div>
+    }
+    <h3>@Model.Name</h3>
+    <h4>@Model.Position</h4>
+    <p>@Model.Description</p>
+</div>

@@ -1,0 +1,57 @@
+﻿@using System.Security.Principal
+
+@{
+    ViewData["Title"] = "Overview";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome, @User.Identity.Name.Substring(0, User.Identity.Name.IndexOf("@"))!</h1>
+
+    <div id="myChart1" style="width: 45%; color: aliceblue; display: inline-block"></div>
+    <div id="myChart2" style="width: 45%; color: aliceblue; display: inline-block"></div>
+</div>
+
+<script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/js/realtime-refresher/realtime.refresher.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="~/js/Charts/overview.charts.js"></script>
+<script>
+    google.charts.load('current', { packages: ['corechart'] });
+
+    var myChart1 = null;
+    var myChart2 = null;
+
+    setHubAddress("/charthub");
+    setReceiveFunction("ChartRefresh", function (content) {
+        if (myChart1 == null) {
+            google.charts.setOnLoadCallback(function () { myChart1 = overviewBarChart(content.barChart, 'myChart1') });
+        }
+        else {
+            var options = {
+                title: content.title,
+                animation: {
+                    duration: 500,
+                    easing: 'out'
+                }
+            };
+            myChart1.draw(setOverviewBarChartData(content.barChart), options);
+        }
+
+        if (myChart2 == null) {
+            google.charts.setOnLoadCallback(function () { myChart2 = overviewTimeChart(content.timeChart, 'myChart2') });
+        }
+        else {
+            var options = {
+                title: content.title,
+                animation: {
+                    duration: 500,
+                    easing: 'out'
+                }
+            };
+            myChart2.draw(setOverviewTimeChartData(content.timeChart), options);
+        }
+    });
+    startHub();
+
+    executeIntervalRefresh(3000);
+</script>
